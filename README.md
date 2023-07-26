@@ -1,0 +1,41 @@
+- [ ] **Set up Firebase project**
+
+  - [ ] Create a new project in Firebase
+  - [ ] Enable required authentication method (Email/Password, Google, Facebook etc.)
+  - [ ] Obtain Firebase configuration details
+
+- [ ] **Create a React frontend with Firebase**
+
+  - [ ] Initialize a new React project with Vite
+  - [ ] Install and configure Firebase SDK
+  - [ ] Create components
+    - [ ] App (including Firebase initialization)
+    - [ ] UserAuthForm (for both login and registration)
+    - [ ] TodosList
+    - [ ] TodoItem
+    - [ ] TodoForm
+  - [ ] Implement user registration and login using Firebase
+  - [ ] Implement session handling (storing Firebase JWT token and user data)
+  - [ ] Implement user logout
+  - [ ] Implement CRUD operations for to-dos (interact with Rails backend)
+
+- [ ] **Create a Rails backend API**
+
+  - [ ] Generate a new Rails API
+  - [ ] Create Todo model with required fields (`description: string`, `complete: boolean`, `user_id: string`)
+  - [ ] Create Todos controller with necessary actions (Create, Read, Update, Delete)
+  - [ ] Set up routes for Todos
+  - [ ] Set up Firebase JWT token verification for authenticated requests
+  - [ ] Implement necessary logic in controller actions (verify user ID from Firebase JWT token)
+
+- [ ] **Integration and testing**
+
+  - [ ] Ensure frontend can successfully communicate with backend (CORS setup)
+  - [ ] Test all functionalities manually
+  - [ ] Write tests
+
+- [ ] **Deployment**
+  - [ ] Dockerize the Rails API
+  - [ ] Deploy Rails API
+  - [ ] Build React application for production
+  - [ ] Deploy frontend application (many options: Firebase Hosting, Netlify, Vercel, etc.)
