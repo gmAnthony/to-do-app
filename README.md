@@ -1,12 +1,12 @@
-- [ ] **Set up Firebase project**
+- [x] **Set up Firebase project**
 
-  - [ ] Create a new project in Firebase
-  - [ ] Enable required authentication method (Email/Password, Google, Facebook etc.)
-  - [ ] Obtain Firebase configuration details
+  - [x] Create a new project in Firebase
+  - [x] Enable required authentication method (Email/Password, Google, Facebook etc.)
+  - [x] Obtain Firebase configuration details
 
 - [ ] **Create a React frontend with Firebase**
 
-  - [ ] Initialize a new React project with Vite
+  - [x] Initialize a new React project with Vite
   - [ ] Install and configure Firebase SDK
   - [ ] Create components
     - [ ] App (including Firebase initialization)
