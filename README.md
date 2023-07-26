@@ -7,7 +7,7 @@
 - [ ] **Create a React frontend with Firebase**
 
   - [x] Initialize a new React project with Vite
-  - [ ] Install and configure Firebase SDK
+  - [x] Install and configure Firebase SDK
   - [ ] Create components
     - [ ] App (including Firebase initialization)
     - [ ] UserAuthForm (for both login and registration)
