@@ -8,15 +8,16 @@
 
   - [x] Initialize a new React project with Vite
   - [x] Install and configure Firebase SDK
-  - [ ] Create components
-    - [ ] App (including Firebase initialization)
-    - [ ] UserAuthForm (for both login and registration)
-    - [ ] TodosList
-    - [ ] TodoItem
-    - [ ] TodoForm
-  - [ ] Implement user registration and login using Firebase
+  - [x] Create components
+    - [x] App (including Firebase initialization)
+    - [x] UserAuthForm (for both login and registration)
+    - [x] TodosList
+    - [x] TodoItem
+    - [x] TodoForm
+    - [x] Header
+  - [x] Implement user registration and login using Firebase
   - [ ] Implement session handling (storing Firebase JWT token and user data)
-  - [ ] Implement user logout
+  - [x] Implement user logout
   - [ ] Implement CRUD operations for to-dos (interact with Rails backend)
 
 - [ ] **Create a Rails backend API**
