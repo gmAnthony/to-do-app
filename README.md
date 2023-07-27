@@ -1,22 +1,23 @@
-- [ ] **Set up Firebase project**
+- [x] **Set up Firebase project**
 
-  - [ ] Create a new project in Firebase
-  - [ ] Enable required authentication method (Email/Password, Google, Facebook etc.)
-  - [ ] Obtain Firebase configuration details
+  - [x] Create a new project in Firebase
+  - [x] Enable required authentication method (Email/Password, Google, Facebook etc.)
+  - [x] Obtain Firebase configuration details
 
 - [ ] **Create a React frontend with Firebase**
 
-  - [ ] Initialize a new React project with Vite
-  - [ ] Install and configure Firebase SDK
-  - [ ] Create components
-    - [ ] App (including Firebase initialization)
-    - [ ] UserAuthForm (for both login and registration)
-    - [ ] TodosList
-    - [ ] TodoItem
-    - [ ] TodoForm
-  - [ ] Implement user registration and login using Firebase
+  - [x] Initialize a new React project with Vite
+  - [x] Install and configure Firebase SDK
+  - [x] Create components
+    - [x] App (including Firebase initialization)
+    - [x] UserAuthForm (for both login and registration)
+    - [x] TodosList
+    - [x] TodoItem
+    - [x] TodoForm
+    - [x] Header
+  - [x] Implement user registration and login using Firebase
   - [ ] Implement session handling (storing Firebase JWT token and user data)
-  - [ ] Implement user logout
+  - [x] Implement user logout
   - [ ] Implement CRUD operations for to-dos (interact with Rails backend)
 
 - [ ] **Create a Rails backend API**
