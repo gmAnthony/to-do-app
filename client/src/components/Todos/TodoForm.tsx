@@ -41,7 +41,9 @@ function TodoForm({ addTodo }: TodoFormProps): JSX.Element {
             value={description}
             onChange={(event) => setDescription(event.target.value)}
           />
-          <Button type="submit">Add Todo</Button>
+          <Button type="submit" disabled={title.length === 0}>
+            Add Todo
+          </Button>
         </form>
       </Card>
     </div>

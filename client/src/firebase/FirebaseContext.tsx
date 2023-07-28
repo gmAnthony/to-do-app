@@ -4,6 +4,7 @@ import { FirebaseApp } from "firebase/app";
 
 export type FirebaseContextProps = {
   user: User | null;
+  setUser: React.Dispatch<React.SetStateAction<User | null>>;
   firebase: FirebaseApp;
 };
 

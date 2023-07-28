@@ -18,7 +18,7 @@ const FirebaseProvider: React.FC<FirebaseProviderProps> = ({ children }) => {
   }, []);
 
   return (
-    <FirebaseContext.Provider value={{ user, firebase: auth.app }}>
+    <FirebaseContext.Provider value={{ user, setUser, firebase: auth.app }}>
       {children}
     </FirebaseContext.Provider>
   );

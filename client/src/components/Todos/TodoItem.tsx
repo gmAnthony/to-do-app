@@ -112,6 +112,7 @@ function TodoItem({
                 onClick={handleSaveClick}
                 radius="xl"
                 variant="light"
+                disabled={editedTodo.title.length === 0}
               >
                 <IconDeviceFloppy size="1.125rem" />
               </ActionIcon>
