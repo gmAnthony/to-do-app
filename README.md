@@ -30,8 +30,8 @@
 
 - [ ] **Integration and testing**
 
-  - [ ] Ensure frontend can successfully communicate with backend (CORS setup)
-  - [ ] Test all functionalities manually
+  - [x] Ensure frontend can successfully communicate with backend (CORS setup)
+  - [x] Test all functionalities manually
   - [ ] Write tests
 
 - [ ] **Deployment**
