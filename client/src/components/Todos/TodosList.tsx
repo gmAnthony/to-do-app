@@ -3,19 +3,24 @@ import type { Todo } from "../../types/todo";
 import { TodoItem } from "./TodoItem";
 import { SegmentedControl } from "@mantine/core";
 
-interface TodoListProps {
+type TodosListProps = {
   todos: Todo[];
-}
+  deleteTodo: (id: Todo["id"]) => void;
+  updateTodo: (id: Todo["id"], newTodo: Partial<Todo>) => void;
+};
 
-function TodosList({ todos }: TodoListProps): JSX.Element {
-  // instead of accepting todos as a prop, fetch them from the backend
+function TodosList({
+  todos,
+  deleteTodo,
+  updateTodo,
+}: TodosListProps): JSX.Element {
   const [filter, setFilter] = useState("all");
+
   const filteredTodos =
     filter === "all" ? todos : todos.filter((todo) => todo.status === filter);
-
   return (
     <div className="todo-list">
-      <h2>Your Tasks</h2>
+      <h2>Your To-dos</h2>
       <SegmentedControl
         data={[
           { value: "all", label: "All" },
@@ -26,9 +31,20 @@ function TodosList({ todos }: TodoListProps): JSX.Element {
         onChange={setFilter}
       />
       <ul>
-        {filteredTodos.map((todo) => {
-          return <TodoItem key={todo.id} todo={todo} />;
-        })}
+        {!!filteredTodos.length ? (
+          filteredTodos.map((todo) => {
+            return (
+              <TodoItem
+                key={todo.id}
+                todo={todo}
+                deleteTodo={deleteTodo}
+                updateTodo={updateTodo}
+              />
+            );
+          })
+        ) : (
+          <p>No {filter != "all" ? filter : ""} to-dos.</p>
+        )}
       </ul>
     </div>
   );
