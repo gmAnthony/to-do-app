@@ -45,16 +45,21 @@ const useTodos = () => {
 
   useEffect(() => {
     const fetchTodos = async () => {
+      const user = auth.currentUser;
       const todos: Todo[] = await makeApiRequest({
         method: "GET",
-        endpoint: `${apiEndpoint}todos`,
+        endpoint: `${apiEndpoint}todos?userId=${user?.uid}`,
       });
       if (todos) setTodos(todos);
     };
     fetchTodos();
-  }, []);
+  }, [auth.currentUser?.uid]);
 
   const addTodo = async (newTodo: Todo) => {
+    const user = auth.currentUser;
+    if (user) {
+      newTodo.userId = user.uid;
+    }
     const addedTodo: Todo | undefined = await makeApiRequest({
       method: "POST",
       endpoint: `${apiEndpoint}todos`,

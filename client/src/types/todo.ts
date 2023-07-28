@@ -3,4 +3,5 @@ export type Todo = {
   title: string;
   description: string;
   status: "completed" | "pending";
+  userId?: string;
 };

@@ -38,16 +38,18 @@ function UserAuthForm() {
     event.preventDefault();
 
     if (loginType === "anonymous") {
-      signInAnonymously(auth)
-        .then((userCredential) => {
-          let user = userCredential.user;
-          console.log(user);
-        })
-        .catch((error) => {
+      try {
+        let userCredential = await signInAnonymously(auth);
+        let user = userCredential.user;
+      } catch (error) {
+        if (error instanceof FirebaseError) {
           let errorCode = error.code;
           let errorMessage = error.message;
           console.log(errorCode, errorMessage);
-        });
+        } else {
+          console.log(error);
+        }
+      }
       return;
     }
 

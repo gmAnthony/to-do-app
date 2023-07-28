@@ -3,7 +3,7 @@ class TodosController < ApplicationController
 
   # GET /todos
   def index
-    @todos = Todo.all
+    @todos = Todo.where(userId: params[:userId])
     render json: @todos
   end
 
@@ -38,7 +38,7 @@ class TodosController < ApplicationController
     end
 
     def todo_params
-      params.require(:todo).permit(:title, :description, :status)
+      params.require(:todo).permit(:title, :description, :status, :userId)
     end
 end
 
