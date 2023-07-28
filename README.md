@@ -22,8 +22,8 @@
 
 - [ ] **Create a Rails backend API**
 
-  - [ ] Generate a new Rails API
-  - [ ] Create Todo model with required fields (`description: string`, `complete: boolean`, `user_id: string`)
+  - [x] Generate a new Rails API
+  - [x] Create Todo model with required fields (`title: string`, `description: string`, `staus: string`, `user_id: string`)
   - [ ] Create Todos controller with necessary actions (Create, Read, Update, Delete)
   - [ ] Set up routes for Todos
   - [ ] Set up Firebase JWT token verification for authenticated requests
