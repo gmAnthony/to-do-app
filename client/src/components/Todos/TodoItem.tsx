@@ -69,6 +69,7 @@ function TodoItem({
             onChange={() => updateTodo(todo.id, { status: newStatus })}
             size="xs"
             disabled={isEditing}
+            data-testid="toggle-todo"
           />
           {isEditing ? (
             <TextInput
@@ -82,9 +83,12 @@ function TodoItem({
               }
               size="xs"
               variant="unstyled"
+              data-testid="editable-todo-title-input"
             />
           ) : (
-            <span className="todo-title">{todo.title}</span>
+            <span data-testid="todo-title" className="todo-title">
+              {todo.title}
+            </span>
           )}
         </div>
         {isEditing ? (
@@ -100,9 +104,15 @@ function TodoItem({
             }
             size="xs"
             variant="unstyled"
+            data-testid="editable-todo-description-input"
           />
         ) : (
-          <span className="todo-item-description">{todo.description}</span>
+          <span
+            data-testid="todo-description"
+            className="todo-item-description"
+          >
+            {todo.description}
+          </span>
         )}
         <div className="todo-item-footer">
           {isEditing && (
@@ -114,7 +124,7 @@ function TodoItem({
                 variant="light"
                 disabled={editedTodo.title.length === 0}
               >
-                <IconDeviceFloppy size="1.125rem" />
+                <IconDeviceFloppy data-testid="save-todo" size="1.125rem" />
               </ActionIcon>
               <ActionIcon
                 color="red"
@@ -122,7 +132,7 @@ function TodoItem({
                 radius="xl"
                 variant="light"
               >
-                <IconCircleX size="1.125rem" />
+                <IconCircleX data-testid="cancel-todo" size="1.125rem" />
               </ActionIcon>
             </>
           )}
@@ -131,14 +141,14 @@ function TodoItem({
             onClick={handleClick}
             radius="xl"
           >
-            <IconEdit size="1.125rem" />
+            <IconEdit data-testid="edit-todo" size="1.125rem" />
           </ActionIcon>
           <ActionIcon
             disabled={todo.status === "completed" || isEditing}
             onClick={() => deleteTodo(todo.id)}
             radius="xl"
           >
-            <IconTrash size="1.125rem" />
+            <IconTrash data-testid="delete-todo" size="1.125rem" />
           </ActionIcon>
         </div>
       </Card>
