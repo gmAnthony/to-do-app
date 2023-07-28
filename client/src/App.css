@@ -115,3 +115,7 @@ input {
   margin: 0;
   padding: 0;
 }
+
+.auth-form-card > form > div:last-of-type {
+  margin-bottom: 1rem;
+}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {
   signInWithEmailAndPassword,
+  signInAnonymously,
   createUserWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
@@ -15,15 +16,40 @@ import {
   SegmentedControl,
 } from "@mantine/core";
 
+type LoginTypeOptions = {
+  label: string;
+  value: "login" | "register" | "anonymous";
+};
+const LoginTypeOptions: LoginTypeOptions[] = [
+  { label: "Login", value: "login" },
+  { label: "Register", value: "register" },
+  { label: "Anonymous", value: "anonymous" },
+];
+
 function UserAuthForm() {
   const [email, setEmail] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<FirebaseError | null>(null);
-  const [isLogin, setIsLogin] = useState(true);
+  const [loginType, setLoginType] =
+    useState<LoginTypeOptions["value"]>("login");
 
   const handleLogin = async (event: React.SyntheticEvent) => {
     event.preventDefault();
+
+    if (loginType === "anonymous") {
+      signInAnonymously(auth)
+        .then((userCredential) => {
+          let user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          let errorCode = error.code;
+          let errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+        });
+      return;
+    }
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
@@ -56,12 +82,9 @@ function UserAuthForm() {
   return (
     <Center maw={100} mx="auto" className="auth-form">
       <SegmentedControl
-        data={[
-          { label: "Login", value: "login" },
-          { label: "Register", value: "register" },
-        ]}
-        value={isLogin ? "login" : "register"}
-        onChange={(value) => setIsLogin(value === "login")}
+        data={LoginTypeOptions}
+        value={loginType}
+        onChange={(value) => setLoginType(value as LoginTypeOptions["value"])}
       />
       <Card
         className="auth-form-card"
@@ -70,35 +93,53 @@ function UserAuthForm() {
         radius="md"
         withBorder
       >
-        <form onSubmit={isLogin ? handleLogin : handleRegister}>
-          {!isLogin && (
+        <form
+          onSubmit={loginType !== "register" ? handleLogin : handleRegister}
+        >
+          {loginType === "register" && (
             <Input
               placeholder="Display Name"
               value={displayName}
               onChange={(event) => setDisplayName(event.currentTarget.value)}
             />
           )}
-          <Input
-            required
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(event) => setEmail(event.currentTarget.value)}
-          />
+          {loginType !== "anonymous" && (
+            <>
+              <Input
+                required
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(event) => setEmail(event.currentTarget.value)}
+              />
 
-          <PasswordInput
-            required
-            placeholder="Password"
-            value={password}
-            onChange={(event) => setPassword(event.currentTarget.value)}
-          />
-          {isLogin ? (
+              <PasswordInput
+                required
+                placeholder="Password"
+                value={password}
+                onChange={(event) => setPassword(event.currentTarget.value)}
+              />
+            </>
+          )}
+          {loginType === "anonymous" && (
+            <p style={{ textAlign: "left" }}>
+              Logging in anonymously will allow you to use the app without
+              creating an account, but nothing you do will be saved. 😕
+            </p>
+          )}
+          {loginType === "login" && (
             <Button color="teal" type="submit">
               Login
             </Button>
-          ) : (
+          )}
+          {loginType === "register" && (
             <Button color="teal" type="submit">
               Register
+            </Button>
+          )}
+          {loginType === "anonymous" && (
+            <Button color="teal" type="submit">
+              Enter
             </Button>
           )}
         </form>
