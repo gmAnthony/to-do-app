@@ -38,7 +38,6 @@ function UserAuthForm() {
     event.preventDefault();
 
     try {
-      console.log(auth);
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -98,11 +97,9 @@ function UserAuthForm() {
               Login
             </Button>
           ) : (
-            // <button type="submit">Login</button>
             <Button color="teal" type="submit">
               Register
             </Button>
-            // <button type="submit">Register</button>
           )}
         </form>
       </Card>

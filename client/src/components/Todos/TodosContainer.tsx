@@ -1,13 +1,18 @@
 import { TodoForm } from "./TodoForm";
 import { TodosList } from "./TodosList";
-// delete once we hook up the backend
-import { todos } from "../../mocks/todos";
+import { useTodos } from "../../utils/useTodos";
 
 function TodosContainer() {
+  const { todos, addTodo, deleteTodo, updateTodo } = useTodos();
+
   return (
     <div className="todo-container">
-      <TodoForm />
-      <TodosList todos={todos} />
+      <TodoForm addTodo={addTodo} />
+      <TodosList
+        todos={todos}
+        deleteTodo={deleteTodo}
+        updateTodo={updateTodo}
+      />
     </div>
   );
 }

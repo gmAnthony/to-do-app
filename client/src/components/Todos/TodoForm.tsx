@@ -1,21 +1,26 @@
 import { useState } from "react";
 import { Card, Input, Button } from "@mantine/core";
 
-function TodoForm(): JSX.Element {
-  const [todoTitle, setTodoTitle] = useState("");
-  const [todoDescription, setTodoDescription] = useState("");
+type TodoFormProps = {
+  addTodo: (newTodo: any) => void;
+};
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    // POST to /todos when backend is set up
+function TodoForm({ addTodo }: TodoFormProps): JSX.Element {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(todoTitle, todoDescription);
-    setTodoTitle("");
-    setTodoDescription("");
+
+    addTodo({ title, description, status: "pending" });
+
+    setTitle("");
+    setDescription("");
   };
 
   return (
     <div className="todo-form">
-      <h2>Add a Task</h2>
+      <h2>Add a To-do</h2>
       <Card
         className="auth-form-card"
         shadow="sm"
@@ -27,14 +32,14 @@ function TodoForm(): JSX.Element {
           <Input
             type="title"
             placeholder="Title"
-            value={todoTitle}
-            onChange={(event) => setTodoTitle(event.target.value)}
+            value={title}
+            onChange={(event) => setTitle(event.target.value)}
           />
           <Input
             type="description"
             placeholder="Description"
-            value={todoDescription}
-            onChange={(event) => setTodoDescription(event.target.value)}
+            value={description}
+            onChange={(event) => setDescription(event.target.value)}
           />
           <Button type="submit">Add Todo</Button>
         </form>
