@@ -28,11 +28,11 @@
   - [x] Set up Firebase JWT token verification for authenticated requests
   - [x] Implement necessary logic in controller actions (verify user ID from Firebase JWT token)
 
-- [ ] **Integration and testing**
+- [x] **Integration and testing**
 
   - [x] Ensure frontend can successfully communicate with backend (CORS setup)
   - [x] Test all functionalities manually
-  - [ ] Write tests
+  - [x] Write tests
 
 - [ ] **Deployment**
   - [ ] Dockerize the Rails API
