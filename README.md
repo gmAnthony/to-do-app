@@ -35,7 +35,7 @@
   - [x] Write tests
 
 - [ ] **Deployment**
-  - [ ] Dockerize the Rails API
-  - [ ] Deploy Rails API
-  - [ ] Build React application for production
+  - [x] Dockerize the Rails API
+  - [x] Deploy Rails API
+  - [x] Build React application for production
   - [ ] Deploy frontend application (many options: Firebase Hosting, Netlify, Vercel, etc.)
