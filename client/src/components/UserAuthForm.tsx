@@ -39,8 +39,7 @@ function UserAuthForm() {
 
     if (loginType === "anonymous") {
       try {
-        let userCredential = await signInAnonymously(auth);
-        let user = userCredential.user;
+        await signInAnonymously(auth);
       } catch (error) {
         if (error instanceof FirebaseError) {
           let errorCode = error.code;
