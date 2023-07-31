@@ -14,5 +14,6 @@ EXPOSE 3000
 
 ENV RAILS_ENV production
 ENV RACK_ENV production
+ENV RAILS_SERVE_STATIC_FILES true
 
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
