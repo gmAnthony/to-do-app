@@ -1,5 +1,7 @@
 # A simple to-do list application
 
+Deployed at [toodol.pro](https://toodol.pro)
+
 I built this app as a demonstration of my ability to build a full-stack CRUD application. The
 frontend is a Vite/React application using Firebase for authentication and deployed on Vercel. The
 backend is a Rails API using PostgreSQL for the database and deployed on Fly.io.
